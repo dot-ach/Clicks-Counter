@@ -2,19 +2,16 @@
 import React from 'react';
 import './App.css';
 
-function useClicks(initialItem){
-  let [item, setItem] = React.useState(initialItem);
-
-  const newClick = () => {
-    setItem(item++);
-  }
-
-  return [item, newClick];
-}
-
 function App() {
 
-  const [number, setNumber] = useClicks(0);
+  const [number, setNumber] = React.useState(0);
+
+  const plusNumberClick = () => {
+    setNumber(prevState => prevState + 1)
+  }
+  // const restartNumberClick = () => {
+  //   setNumber(0)
+  // }
 
   return (
     <>
@@ -22,11 +19,23 @@ function App() {
         <p>{number}</p>
       </div>
       <div>
-        <button onClick={setNumber}>Reset</button>
-        <button onClick={setNumber}>Click</button>
+        <button onClick={() => setNumber(0)}>Reset</button>
+        <button onClick={plusNumberClick}>Click</button>
       </div>
     </>
   );
 }
+
+// function useClicks(initialItem){
+//   const [item, setItem] = React.useState(initialItem);
+//   // let currentValue = item;
+//   // let currentValue = item;
+//   // const newClick = () => {
+//   //   setItem(currentValue++);
+//   //   console.log('click')
+//   // }
+
+//   return [item, setItem];
+// }
 
 export default App;
