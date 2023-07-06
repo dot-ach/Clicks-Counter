@@ -9,33 +9,24 @@ function App() {
   const plusNumberClick = () => {
     setNumber(prevState => prevState + 1)
   }
-  // const restartNumberClick = () => {
-  //   setNumber(0)
-  // }
 
   return (
     <>
-      <div>
-        <p>{number}</p>
+      <div className='Number-Container'>
+        <p className='Number-P'>{number}</p>
       </div>
-      <div>
-        <button onClick={() => setNumber(0)}>Reset</button>
-        <button onClick={plusNumberClick}>Click</button>
+      <div className='Buttons-Container'>
+        <button
+          onClick={() => setNumber(0)}
+          className='Button-Reset Button'
+        >Reset</button>
+        <button
+          onClick={plusNumberClick}
+          className='Button-Click Button'
+        >Click</button>
       </div>
     </>
   );
 }
-
-// function useClicks(initialItem){
-//   const [item, setItem] = React.useState(initialItem);
-//   // let currentValue = item;
-//   // let currentValue = item;
-//   // const newClick = () => {
-//   //   setItem(currentValue++);
-//   //   console.log('click')
-//   // }
-
-//   return [item, setItem];
-// }
 
 export default App;
